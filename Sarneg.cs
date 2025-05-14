@@ -14,7 +14,7 @@ partial class Sarneg()
         .Select((ch, i) => new { ch, i })
         .ToDictionary(x => (char)('0' + x.i), x => x.ch);
         var output = new string(input.Select(ch => encodeMap.TryGetValue(ch, out var decoded) ? decoded : ch).ToArray());
-        return Regex.Replace(output, @"[^A-Z\s]", "", RegexOptions.IgnoreCase);
+        return ONLY_KEEP_TEXT().Replace(output, "");
     }
 
     public string GetValidChallengeWord()
@@ -40,4 +40,6 @@ partial class Sarneg()
 
     [GeneratedRegex(@"^[A-Z]{10}$")]
     private static partial Regex SARNEG_REGEX();
+    [GeneratedRegex(@"[^A-Z\s]")]
+    private static partial Regex ONLY_KEEP_TEXT();
 }
