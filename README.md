@@ -3,7 +3,14 @@
 SARNEG is a lightweight encryption method designed for securely transmitting **numerical information**, such as **map grid coordinates**, over **non-secure communication channels**. It is ideal for **Search and Rescue (SAR)** scenarios, where isolated individuals must communicate their location discreetly. (Chesbro, 2018)
 
 ---
+## ⚠️ Security Note
 
+SARNEG is **not a strong encryption method**. It is suitable for:
+- Obscuring location in hostile environments.
+- Short-term secrecy of numerical data.
+- Human memorization and quick encoding.
+
+It is **not recommended** for encrypting sensitive or high-volume data.
 ## 🔐 How It Works
 
 SARNEG substitutes each digit from `0–9` with a corresponding letter from a **10-letter keyword** (with no repeating letters).
@@ -44,14 +51,6 @@ _Note: Prefix (`45V UC`) is typically not transmitted unless necessary. The appl
 
 ![Demonstration Screenshot of the Console App](https://i.imgur.com/N2lUSso.png)
 
-## ⚠️ Security Note
-
-SARNEG is **not a strong encryption method**. It is suitable for:
-- Obscuring location in hostile environments.
-- Short-term secrecy of numerical data.
-- Human memorization and quick encoding.
-
-It is **not recommended** for encrypting sensitive or high-volume data.
 ## References
 Chesbro, M., 2018. Operating in Hostile and Non-Permissive Environments: A Survival and Resource Guide For Those Who Go in Harm's Way. pp.172–173.
 ## Authors
