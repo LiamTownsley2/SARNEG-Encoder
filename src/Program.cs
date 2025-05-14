@@ -15,9 +15,12 @@ partial class Program
         if(mode.Equals("grid"))
         {
             Dictionary<string, string> grid = GetGridCoordinate("Enter Grid Coordinates (76232 63380): ");
-            var additional = grid["additional"]?.ToString();
-            var coordinate = sarneg_encoder.Encode(grid["coordinate"], challengeWord);
-            output = string.IsNullOrEmpty(additional) ? coordinate : $"{additional}, SARNEG: {coordinate}";
+            string coordinate = sarneg_encoder.Encode(grid["coordinate"], challengeWord);
+            if(grid.TryGetValue("additional", out var additional) && !string.IsNullOrEmpty(additional))
+            {
+                coordinate = $"{additional}, SARNEG: {coordinate}";
+            }
+            output = coordinate;
         }
         else if (mode.Equals("geographic"))
         {
@@ -31,7 +34,10 @@ partial class Program
             throw new Exception("There was an error whilst generating this SARNEG code. Please try again.");
         }
 
-        Console.Write(output);
+        Console.WriteLine("******************************");
+        Console.WriteLine($"SARNEG Encrypted Data: {output}");
+        Console.WriteLine("******************************");
+        System.Threading.Thread.Sleep(5000);
     }
 
     private static string GetMode(string prompt)
