@@ -9,7 +9,7 @@ partial class Program
         Sarneg sarneg_encoder = new();
 
         string challengeWord = sarneg_encoder.GetValidChallengeWord();
-        Console.WriteLine($"SARNEG Codeword Selected: {challengeWord})");
+        Console.WriteLine($"SARNEG Codeword Selected: {challengeWord}");
         string mode = GetMode("Would you like to provide your location using: [A] Grid Coordinates [B] Geographic Coordinates (Longitude & Latitude): ");
         string? output = null;
         if(mode.Equals("grid"))
